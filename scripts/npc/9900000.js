@@ -108,9 +108,9 @@ function start() {
     }
 
     if (cm.getPlayer().isMale()) {
-        cm.sendSimple("Hey there, you can change your look for " + price + " mesos. What would you like to change?\r\n#L0#Skin#l\r\n#L1#Male Hair 1#l\r\n#L2#Male Hair 2#l\r\n#L3#Male Hair 3#l\r\n#L4#Hair Color#l\r\n#L5#Male Eyes#l\r\n#L6#Eye Color#l");
+        cm.sendSimple("Hey there, you can change your look for " + price + " mesos. What would you like to change?\r\n#L0#Skin#l\r\n#L1#Male Hair 1#l\r\n#L2#Male Hair 2#l\r\n#L3#Male Hair 3#l\r\n#L4#Hair Color#l\r\n#L5#Male Eyes#l\r\n#L6#Eye Color#l\r\n#L11#Warrior Starter Pack#l\r\n#L12#Archer Starter Pack#l\r\n#L13#Mage Starter Pack#l\r\n#L14#Thief Starter Pack#l\r\n#L15#Pirate Starter Pack#l\r\n#L16#Beginner Starter Pack#l");
     } else {
-        cm.sendSimple("Hey there, you can change your look for " + price + " mesos. What would you like to change?\r\n#L0#Skin#l\r\n#L7#Female Hair 1#l\r\n#L8#Female Hair 2#l\r\n#L9#Female Hair 3#l\r\n#L4#Hair Color#l\r\n#L10#Female Eyes#l\r\n#L6#Eye Color#l");
+        cm.sendSimple("Hey there, you can change your look for " + price + " mesos. What would you like to change?\r\n#L0#Skin#l\r\n#L7#Female Hair 1#l\r\n#L8#Female Hair 2#l\r\n#L9#Female Hair 3#l\r\n#L4#Hair Color#l\r\n#L10#Female Eyes#l\r\n#L6#Eye Color#l\r\n#L11#Warrior Starter Pack#l\r\n#L12#Archer Starter Pack#l\r\n#L13#Mage Starter Pack#l\r\n#L14#Thief Starter Pack#l\r\n#L15#Pirate Starter Pack#l\r\n#L16#Beginner Starter Pack#l");
     }
 }
 
@@ -122,7 +122,6 @@ function action(mode, type, selection) {
     }
     if (status == 1) {
         beauty = selection + 1;
-        if (cm.getMeso() > price) {
             if (selection == 0) {
                 cm.sendStyle("Pick one?", skin);
             } else if (selection == 1 || selection == 7) {
@@ -168,11 +167,121 @@ function action(mode, type, selection) {
 					//colors.push(baseFace + (i*100));
 				}
                 cm.sendStyle("Pick one?", colors);
-            }
-        } else {
-            cm.sendNext("You don't have enough mesos. Sorry to say this, but without " + price + " mesos, you won't be able to change your look!");
-            cm.dispose();
-        }
+            } else if (selection == 11){
+				if(cm.haveItem(4161001, 1)){
+					cm.sendOk("So you have Chosen the Warrior Package? Here you go!"); 
+					cm.gainItem(1102041, 1); // Pink Advent Cape
+					cm.gainItem(1302067, 1); // Maple Ani Weapon
+					cm.gainItem(1442071, 1); // Seraphim Polearm
+					cm.gainItem(1442050, 1); // Seraphim Spear
+					cm.gainItem(1402053, 1); // Seraphim 2-H Sword
+					cm.gainItem(1412035, 1); // Seraphim 2-H Axe
+					cm.gainItem(3010000, 1); // Beginner Chair
+					cm.gainItem(1422039, 1); // Seraphim 2-H Blunt Weapon (Mace)
+					cm.gainItem(1002357, 1); // Zakum Hat
+					cm.gainItem(2022179, 5); // 5 Onyx Apple
+					cm.gainItem(2000005, 50); // 50 Power Elixir
+					cm.gainMeso(1000000); // 1 Million Meso
+					cm.gainItem(1082146, 1); // Yellow WG
+					cm.gainItem(3010000, 1);
+					cm.gainItem(4161001, -1); // Take away the shells
+				}else{
+					cm.sendOk("You do not have the Beginner's Guide! Starter Pack is only available once."); 
+					cm.dispose();
+				}
+			}else if (selection == 12){
+				if(cm.haveItem(4161001, 1)){
+					cm.sendOk("So you have Chosen the Archer Package? Here you go!"); 
+					cm.gainItem(1462056, 1); // Seraphim Cross bow
+					cm.gainItem(2060001, 5000); // Arrows  
+					cm.gainItem(2061003, 5000); // X-Box arrows. 
+					cm.gainItem(1102041, 1); // Pink Advent Cape
+					cm.gainItem(1302067, 1); // Maple Ani Weapon
+					cm.gainItem(1002357, 1); // Zakum Hat
+					cm.gainItem(2022179, 5); // 5 Onyx Apple
+					cm.gainItem(2000005, 50); // 50 Power Elixir
+					cm.gainMeso(1000000); // 1 Million Meso
+					cm.gainItem(1082147, 1); // Blue WG
+					cm.gainItem(3010000, 1); // Beginner Chair 
+					cm.gainItem(4161001, -1); // Take away the shells
+				}else{
+					cm.sendOk("You do not have the Beginner's Guide! Starter Pack is only available once."); 
+					cm.dispose();
+				}
+			}else if (selection == 13){
+				if(cm.haveItem(4161001, 1)){
+					cm.sendOk("So you have Chosen the Mage Package? Here you go!"); 
+					cm.gainItem(1102042, 1); // Purple Advent Cape
+					cm.gainItem(1302067, 1); // Maple Ani Weapon
+					cm.gainItem(1372046, 1); // Seraphim Wand
+					cm.gainItem(1382062, 1); // Seraphim Staff
+					cm.gainItem(1002357, 1); // Zakum Hat
+					cm.gainItem(2022179, 5); // 5 Onyx Apple
+					cm.gainItem(2000005, 50); // 50 Power Elixir
+					cm.gainMeso(1000000); // 1 Million Meso
+					cm.gainItem(1082145, 1); // Yellow WG
+					cm.gainItem(3010000, 1); // Beginner Chair 
+					cm.gainItem(4161001, -1); // Take away the shells
+				}else{
+					cm.sendOk("You do not have the Beginner's Guide! Starter Pack is only available once."); 
+					cm.dispose();
+				}
+			}else if (selection == 14){
+				if(cm.haveItem(4161001, 1)){
+					cm.sendOk("So you have Chosen the Thief Package? Here you go!"); 
+					cm.gainItem(1102041, 1); // Pink Advent Cape
+					cm.gainItem(2070001, 5000); // Stars  
+					cm.gainItem(1302067, 1); // Maple Ani Weapon
+					cm.gainItem(1332081, 1); // Seraphim Dagger
+					cm.gainItem(1472077, 1); // Seraphim Claw
+					cm.gainItem(1002357, 1); // Zakum Hat
+					cm.gainItem(2022179, 5); // 5 Onyx Apple
+					cm.gainItem(2000005, 50); // 50 Power Elixir
+					cm.gainMeso(1000000); // 1 Million Meso
+					cm.gainItem(1082148, 1); // Purple WG
+					cm.gainItem(3010000, 1); // Beginner Chair 
+					cm.gainItem(4161001, -1); // Take away the shells
+				}else{
+					cm.sendOk("You do not have the Beginner's Guide! Starter Pack is only available once."); 
+					cm.dispose();
+				}
+			}else if (selection == 15){
+				if(cm.haveItem(4161001, 1)){
+					cm.sendOk("So you have Chosen the Pirate Package? Here you go!"); 
+					cm.gainItem(1102041, 1);  // Pink Advent Cape
+					cm.gainItem(1482029, 1); // Seraphim Knuckles
+					cm.gainItem(1482030, 1); // Seraphim Gun
+					cm.gainItem(1002357, 1); // Zakum Hat
+					cm.gainItem(2022179, 5); // 5 Onyx Apple
+					cm.gainItem(2000005, 50); // 50 Power Elixir
+					cm.gainItem(1082147, 1); // Blue WG
+					cm.gainItem(3010000, 1); // Beginner Chair
+					cm.gainMeso(1000000); // 1 Million Meso
+					cm.gainItem(4161001, -1); // Take away the shells
+				}else{
+					cm.sendOk("You do not have the Beginner's Guide! Starter Pack is only available once."); 
+					cm.dispose();
+				}
+			}else if (selection == 16){
+				if(cm.haveItem(4161001, 1)){
+					cm.sendOk("So you have Chosen the Beginner Package? Here you go!"); 
+					cm.gainItem(1102041, 1);  // Pink Advent
+					cm.gainItem(1442057, 1); // Purple SurfBoard
+					cm.gainItem(1442039, 1); // Frozen Tuna
+					cm.gainItem(1302098, 1); // Lunch Box (lv20)
+					cm.gainItem(1002357, 1); // Zakum Hat
+					cm.gainItem(2022179, 5); // 5 Onyx Apple
+					cm.gainItem(2000005, 50); // 50 Power Elixir
+					cm.gainItem(1082002, 1); // White WG
+					cm.gainItem(3010000, 1); // Beginner Chair
+					cm.gainMeso(100000000); // 100 Million Meso 
+					cm.gainItem(4161001, -1); // Take away the shells
+				}else{
+					cm.sendOk("You do not have the Beginner's Guide! Starter Pack is only available once."); 
+					cm.dispose();
+				}
+			}
+
 
     } else if (status == 2) {
         if (beauty == 1) {
@@ -195,6 +304,7 @@ function action(mode, type, selection) {
             cm.setFace(colors[selection]);
             cm.gainMeso(-price);
         }
+		
         cm.dispose();
     }
 }
