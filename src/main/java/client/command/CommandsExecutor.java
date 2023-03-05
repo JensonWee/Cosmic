@@ -102,7 +102,8 @@ public class CommandsExecutor {
 
         client.getPlayer().setLastCommandMessage(splitedMessage[1]);    // thanks Tochi & Nulliphite for noticing string messages being marshalled lowercase
         final String commandName = splitedMessage[0].toLowerCase();
-        final String[] lowercaseParams = splitedMessage[1].toLowerCase().split(splitRegex);
+        //final String[] lowercaseParams = splitedMessage[1].toLowerCase().split(splitRegex);
+        final String[] lowercaseParams = splitedMessage[1].split(splitRegex);
 
         final Command command = registeredCommands.get(commandName);
         if (command == null) {

@@ -51,7 +51,7 @@ public class ChangeNameCommand extends Command {
         Character victim = c.getWorldServer().getPlayerStorage().getCharacterByName(recv_);
         if (victim == null) {
             player.setName(recv_);
-            player.message("Name changed.");
+            player.message("Name changed to "+ recv_ +".");
         } else {
             player.message("Player '" + recv_ + "' had been used.");
         }
