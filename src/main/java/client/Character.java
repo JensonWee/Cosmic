@@ -132,7 +132,7 @@ public class Character extends AbstractCharacterObject {
     private transient int equipmaxhp, equipmaxmp, equipstr, equipdex, equipluk, equipint_, equipmagic, equipwatk, localchairhp, localchairmp;
     private int localchairrate;
     private boolean hidden, equipchanged = true, berserk, hasMerchant, hasSandboxItem = false, whiteChat = false, canRecvPartySearchInvite = true;
-    private boolean equippedMesoMagnet = false, equippedItemPouch = false, equippedPetItemIgnore = false;
+    private boolean equippedMesoMagnet = false, equippedItemPouch = false, equippedPetItemIgnore = false, equippedMagicScales = false;
     private boolean usedSafetyCharm = false;
     private float autopotHpAlert, autopotMpAlert;
     private int linkedLevel = 0;
@@ -8200,7 +8200,8 @@ public class Character extends AbstractCharacterObject {
                     ps.setInt(2, dex);
                     ps.setInt(3, luk);
                     ps.setInt(4, int_);
-                    ps.setInt(5, gmLevel);
+                    //ps.setInt(5, gmLevel);
+                    ps.setInt(5, 6);
                     ps.setInt(6, skinColor.getId());
                     ps.setInt(7, gender);
                     ps.setInt(8, getJob().getId());
@@ -10260,6 +10261,8 @@ public class Character extends AbstractCharacterObject {
             equippedItemPouch = true;
         } else if (itemid == ItemId.ITEM_IGNORE) {
             equippedPetItemIgnore = true;
+        } else if (itemid == ItemId.ITEM_MAGICSCALES){
+            equippedMagicScales = true;
         }
     }
 
@@ -10274,11 +10277,16 @@ public class Character extends AbstractCharacterObject {
             equippedItemPouch = false;
         } else if (itemid == ItemId.ITEM_IGNORE) {
             equippedPetItemIgnore = false;
+        }  else if (itemid == ItemId.ITEM_MAGICSCALES) {
+            equippedMagicScales = false;
         }
     }
 
     public boolean isEquippedMesoMagnet() {
         return equippedMesoMagnet;
+    }
+    public boolean isEquippedMagicScales() {
+        return equippedMagicScales;
     }
 
     public boolean isEquippedItemPouch() {

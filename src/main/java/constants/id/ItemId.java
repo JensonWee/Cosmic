@@ -229,6 +229,8 @@ public class ItemId {
     public static final int ITEM_POUCH = 1812001;
     public static final int ITEM_IGNORE = 1812007;
 
+    public static final int ITEM_MAGICSCALES= 1812006;
+
     public static boolean isPet(int itemId) {
         return itemId / 1000 == 5000;
     }

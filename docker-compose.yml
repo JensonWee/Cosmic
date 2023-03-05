@@ -27,6 +27,8 @@ services:
       MYSQL_DATABASE: "cosmic"
       MYSQL_USER: "cosmic_server"
       MYSQL_PASSWORD: "snailshell"
+    cap_add:
+        - SYS_NICE
     volumes:
       - ./database/docker-db-data:/var/lib/mysql
       - ./database/sql:/docker-entrypoint-initdb.d
